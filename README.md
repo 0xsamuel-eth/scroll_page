@@ -1,2 +1,3 @@
-# scroll_project
+# Scroll Project
+
 A scroll project

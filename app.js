@@ -16,6 +16,7 @@ const links = document.querySelector(".links");
 
 navToggle.addEventListener("click", function() {
     // linksContainer.classList.toggle("show-links");
+    
     const containerHeight = linksContainer.getBoundingClientRect().height;
     const linksHeight = links.getBoundingClientRect().height;
 
@@ -25,10 +26,14 @@ navToggle.addEventListener("click", function() {
     else {
         linksContainer.style.height = 0;
     }
+    // console.log(linksContainer.getBoundingClientRecT());
 });
+
+// ********** fixed navbar ************
+
 const navbar = document.getElementById("nav");
 const topLink = document.querySelector(".top-link");
-// ********** fixed navbar ************
+
 window.addEventListener("scroll", function() {
     const scrollHeight = window.pageYOffset;
     const navHeight = navbar.getBoundingClientRect().height;
@@ -45,21 +50,24 @@ window.addEventListener("scroll", function() {
         topLink.classList.remove("show-link");
     }
 });
+
 // ********** smooth scroll ************
 // select links
-const scrollLinks = document.querySelectorAll("scroll-link");
+const scrollLinks = document.querySelectorAll(".scroll-link");
 
-scrollLinks.forEach(function() {
+scrollLinks.forEach(function(link) {
     link.addEventListener("scroll", function(e) {
         // prevent default
         e.preventDefault();
         // navigate to specific spot
         const id = e.currentTarget.getAttribute("href").slice(1);
         const element = document.getElementById(id);
+        
         // calculate the heights
         const navHeight = navbar.getBoundingClientRect().height;
         const containerHeight = linksContainer.getBoundingClientRect().height;
         const fixedNav = navbar.classList.contains("fixed-nav");
+        
         let position = element.offsetTop - navHeight;
         
         if(!fixedNav) {

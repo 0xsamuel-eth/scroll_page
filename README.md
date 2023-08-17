@@ -1,4 +1,4 @@
-# Scroll Project
+# Scroll Page Project
 
 A full-featured landing and navigation page with a navigation toggle bar to scroll to page sections, a top link button to return to the top of the page, and scrolling feature to easily navigate amongst page sections
 

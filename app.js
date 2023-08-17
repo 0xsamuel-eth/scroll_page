@@ -3,6 +3,8 @@
 // slice extracts a section of a string without modifying original string
 //offsetTop - A Number, representing the top position of the element, in pixels
 
+const { link } = require("fs");
+
 // ********** set date ************
 const date = document.getElementById("date");
 date.innerHTML = new Date().getFullYear();
@@ -45,3 +47,19 @@ window.addEventListener("scroll", function() {
 });
 // ********** smooth scroll ************
 // select links
+const scrollLinks = document.querySelectorAll("scroll-link");
+
+scrollLinks.forEach(function() {
+    link.addEventListener("scroll", function(e) {
+        // prevent default
+        e.preventDefault();
+        // navigate to specific spot
+        const id = e.currentTarget.getAttribute("href").slice(1);
+        const element = document.getElementById(id);
+        let position = element.offsetTop;
+        window.scrollTo({
+            left: 0,
+            top: position,
+        });
+    });
+});
